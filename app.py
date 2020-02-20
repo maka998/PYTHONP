@@ -1,16 +1,15 @@
-#import tasks
-#import repositoryUtils as ru
+import tasks
+import repositoryUtils as ru
 
 
-def pickOption(option):
+def pickOption(option):     #u zavisnosti koju opciju izaberemo ,odredjena funkcija se izvrsava(varijabla ima pokazivac na funkciju)
     switcher = {
-      #  0: tasks.exit,
-      #  1: tasks.directorySelection,
-      #  3: tasks.setPaginationN,
+        0: tasks.exit,
+        1: tasks.directorySelection,
       #  4: tasks.wordSearch,
       #  #  5: tasks.printContent,
     }
-    func = switcher.get(option, lambda: "Invalid option")
+    func = switcher.get(option, lambda: "pogresna opcija")
     func()
     # Ako smo odabrali izlaz, nasilno izadji i ne pitaj nista
     if option != 0:
@@ -24,9 +23,9 @@ def main():
     option = -1
     while option != 0:
         try:
-          #  ru.cls()  # brisanje ekrana
+            ru.cls()  # brisanje ekrana
             print("[1] Odabir direktorijuma")
-            print("[3] Unesi n za paginaciju")
+            print("[3] Unesi n za paginaciju") #kolio hocemo rezultata
             print("[4] Pretraga reci ")
             print("[5] Ispisis sadrzaj")
             print("[0] Prekid")
@@ -34,7 +33,7 @@ def main():
             option = int(input())
             pickOption(option)
         except ValueError:
-            print("Please enter an integer")
+            print("Unesite neku od ponudjenih opcija:")
 
 
 main()
